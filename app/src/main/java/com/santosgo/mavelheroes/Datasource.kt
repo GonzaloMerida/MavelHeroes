@@ -14,9 +14,7 @@
  * limitations under the License.
  */
 
-package com.santosgo.mavelheroes.data
-
-import com.santosgo.mavelheroes.Hero
+package com.santosgo.mavelheroes
 
 object Datasource {
     fun getHeroList(): MutableList<Hero> {

@@ -6,4 +6,5 @@
     <string name="Power">Poder</string>
     <string name="intelligence">Inteligencia</string>
     <string name="hero_image">Imagen del héroe</string>
+    <string name="heroSelected">Has convocado a %s</string>
 </resources>
