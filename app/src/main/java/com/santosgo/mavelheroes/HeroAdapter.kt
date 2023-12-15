@@ -34,6 +34,9 @@ class HeroAdapter(
             )
             binding.root.setOnClickListener {
                 Snackbar.make(it, "Has convocado a ${hero.name}!", Snackbar.LENGTH_SHORT).show()
+            }
+
+            binding.ivPhoto.setOnClickListener{
                 onClickAdd(adapterPosition)
             }
 
