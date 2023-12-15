@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView.LayoutManager
+import com.google.android.material.snackbar.Snackbar
 import com.santosgo.mavelheroes.databinding.FragmentHeroListBinding
 
 
@@ -41,15 +42,24 @@ class HeroListFragment : Fragment() {
     }
 
     private fun initRecView() {
-        heroAdapter = HeroAdapter(heroes, {pos -> deleteHero(pos)})
+        heroAdapter = HeroAdapter(heroes, {pos -> deleteHero(pos)}, {pos -> cloneHero(pos)})
         binding.rvHeroes.adapter = heroAdapter
 
         layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         binding.rvHeroes.layoutManager = layoutManager
     }
 
+    private fun cloneHero(pos : Int){
+        var selectedHero : Hero = heroes.get(pos)
+//        if (heroes.name){
+//            Snackbar.make(it, "No puedes clonar un clon", Snackbar.LENGTH_SHORT).show()
+//        }
+        selectedHero.name = selectedHero.name+"clon"
+        heroes.add(pos+1, selectedHero)
 
-    fun deleteHero(pos : Int){
+        binding.rvHeroes.adapter?.notifyItemInserted(pos+1)
+    }
+    private fun deleteHero(pos : Int){
         heroes.removeAt(pos)
         binding.rvHeroes.adapter?.notifyItemRemoved(pos)
     }
