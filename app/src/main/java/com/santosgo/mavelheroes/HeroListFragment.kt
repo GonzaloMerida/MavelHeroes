@@ -52,9 +52,9 @@ class HeroListFragment : Fragment() {
     private fun cloneHero(pos : Int){
 
         val selectedHero : Hero = heroes.get(pos)
-//        if (!heroes[pos].name.contains("clon")){
-//            Snackbar.make(it, "No puedes clonar un clon", Snackbar.LENGTH_SHORT).show()
-//        }
+        if (!heroes[pos].name.contains("clon")){
+            Snackbar.make(it, "No puedes clonar un clon", Snackbar.LENGTH_SHORT).show()
+        }
         val clonedHero : Hero = heroes[pos].copy("clon ${heroes[pos].name}")
         clonedHero.name = selectedHero.name+"clon"
         heroes.add(pos+1, clonedHero)
